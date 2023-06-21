@@ -1,7 +1,7 @@
 import Monumeto from "../assets/Monumento_Natural.webp";
 import Monumento2 from "../assets/Monumento2.png";
 import Monumento3 from "../assets/castrero.jpg";
-import SanJuan from "../assets/sanjuan.jpg";
+import SanJuan from "../assets/sanJuan.jpg";
 import { HiOutlineStar } from "react-icons/hi2";
 
 const Destacados = ({ refScroll }) => {
