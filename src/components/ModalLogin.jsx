@@ -22,7 +22,7 @@ export default function MyModal({ isOpen, setIsOpen }) {
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">
-          <div className="flex min-h-full items-center justify-center p-4 text-center">
+          <div className="flex items-center justify-center min-h-full p-4 text-center">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -32,13 +32,13 @@ export default function MyModal({ isOpen, setIsOpen }) {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full max-w-sm transform p-4 sm:p-0 overflow-hidden rounded-xl bg-white text-left align-middle shadow-xl transition-all">
+              <Dialog.Panel className="w-full max-w-sm p-4 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl sm:p-0 rounded-xl">
                 <div className="p-4 sm:p-7">
                   <div className="text-center">
                     <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">Iniciar Sesión</h1>
                     <p className="mt-2 text-sm font-medium text-gray-500 dark:text-gray-400">
                       ¿Aún no tienes una cuenta?{" "}
-                      <span className="hover:cursor-pointer text-blue-600 decoration-2 hover:underline font-medium" href="#">
+                      <span className="font-medium hover:cursor-pointer text-emerald-600 decoration-2 hover:underline" href="#">
                         Registrate aquí
                       </span>
                     </p>
@@ -47,7 +47,7 @@ export default function MyModal({ isOpen, setIsOpen }) {
                   <div className="mt-5">
                     <button
                       type="button"
-                      className="w-full py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-gray-800 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800"
+                      className="inline-flex items-center justify-center w-full gap-2 px-4 py-3 text-sm font-medium text-gray-700 align-middle transition-all bg-white border rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-emerald-600 dark:bg-gray-800 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800"
                     >
                       <svg className="w-4 h-auto" width="46" height="47" viewBox="0 0 46 47" fill="none">
                         <path
@@ -74,10 +74,10 @@ export default function MyModal({ isOpen, setIsOpen }) {
                       O
                     </div>
 
-                    <form autoComplete="off">
+                    <form autoComplete="off" onSubmit={(e) => e.preventDefault()}>
                       <div className="grid gap-y-4">
                         <div>
-                          <label htmlFor="email" className="block text-sm mb-2 dark:text-white">
+                          <label htmlFor="email" className="block mb-2 text-sm dark:text-white">
                             Dirección de correo electrónico
                           </label>
                           <div className="relative">
@@ -85,18 +85,18 @@ export default function MyModal({ isOpen, setIsOpen }) {
                               type="email"
                               id="email"
                               name="email"
-                              className="py-3 border px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
+                              className="block w-full px-4 py-3 text-sm border border-gray-200 rounded-md focus:border-emerald-500 focus:ring-emerald-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
                               required
                               aria-describedby="email-error"
                             />
                           </div>
                         </div>
                         <div>
-                          <div className="flex justify-between items-center">
-                            <label htmlFor="password" className="block text-sm mb-2 dark:text-white">
+                          <div className="flex items-center justify-between">
+                            <label htmlFor="password" className="block mb-2 text-sm dark:text-white">
                               Contraseña
                             </label>
-                            <a className="text-sm text-blue-600 decoration-2 hover:underline font-medium" href="#">
+                            <a className="text-sm font-medium text-emerald-600 decoration-2 hover:underline" href="#">
                               ¿Has olvidado tu contraseña?
                             </a>
                           </div>
@@ -105,7 +105,7 @@ export default function MyModal({ isOpen, setIsOpen }) {
                               type="password"
                               id="password"
                               name="password"
-                              className="py-3 border px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
+                              className="block w-full px-4 py-3 text-sm border border-gray-200 rounded-md focus:border-emerald-500 focus:ring-emerald-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
                               required
                               aria-describedby="password-error"
                             />
@@ -117,7 +117,7 @@ export default function MyModal({ isOpen, setIsOpen }) {
                               id="remember-me"
                               name="remember-me"
                               type="checkbox"
-                              className="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 pointer-events-none focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                              className="shrink-0 mt-0.5 border-gray-200 rounded text-emerald-600 pointer-events-none focus:ring-emerald-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-emerald-500 dark:checked:border-emerald-500 dark:focus:ring-offset-gray-800"
                             />
                           </div>
                           <div className="ml-3">
@@ -128,7 +128,7 @@ export default function MyModal({ isOpen, setIsOpen }) {
                         </div>
                         <button
                           type="submit"
-                          className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-900 text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
+                          className="inline-flex items-center justify-center gap-2 px-4 py-3 text-sm font-semibold text-white transition-all bg-gray-900 border border-transparent rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
                         >
                           Acceder
                         </button>

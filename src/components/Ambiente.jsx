@@ -12,7 +12,7 @@ const AmbienteComponent = () => {
           <img className="mt-8" src={Ambiente} alt="" width={300} />
           <div className="max-w-3xl mt-4">
             <p className="text-sm text-gray-800 sm:text-xl">
-              Nuestra empresa esta comprometida en el apoyo y mantenimiento de estos sitios turiscos para que puedas seguir viviendo nuevas
+              Nuestra empresa esta comprometida en el apoyo y mantenimiento de los sitios turiscos para que puedas seguir viviendo nuevas
               experiencias y disfrutando de ellos
             </p>
           </div>

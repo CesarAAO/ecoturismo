@@ -8,7 +8,7 @@ const Destacados = ({ refScroll }) => {
   return (
     <div ref={refScroll} className="snap-center snap-always">
       <section className="pt-16 mb-8 sm:h-screen">
-        <div className="px-4 py-10 mx-auto sm:px-6 lg:px-8 lg:py-14">
+        <div className="px-6 py-10 mx-auto sm:px-6 lg:px-8 lg:py-14">
           <div className="inline-flex items-center gap-1">
             <HiOutlineStar className="w-10 h-10 text-yellow-400 fill-yellow-300" />
             <h3 className="text-3xl font-bold text-gray-800 sm:text-4xl">Lugares Destacados</h3>
