@@ -9,7 +9,7 @@ const AmbienteComponent = () => {
           <h4 className="text-5xl font-bold text-transparent mt-14 bg-clip-text bg-gradient-to-r from-blue-500 to-emerald-500">
             Cuida el medio ambiente{" "}
           </h4>
-          <img className="mt-8" src={Ambiente} alt="" width={300} />
+          <img loading="lazy" className="mt-8" src={Ambiente} alt="" width={300} />
           <div className="max-w-3xl mt-4">
             <p className="text-sm text-gray-800 sm:text-xl">
               Nuestra empresa esta comprometida en el apoyo y mantenimiento de los sitios turiscos para que puedas seguir viviendo nuevas

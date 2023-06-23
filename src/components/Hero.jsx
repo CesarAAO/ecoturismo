@@ -8,7 +8,7 @@ const Hero = ({ refNav, MoreInfo }) => {
         <div className="max-w-6xl pt-20 mx-auto sm:pb-0">
           <Home MoreInfo={MoreInfo} />
           <div className="absolute inset-x-0 top-0 overflow-hidden -z-10 transform-gpu sm:">
-            <img src={Fondo} className="object-cover w-screen h-screen brightness-75" alt="" />
+            <img loading="eager" src={Fondo} className="object-cover w-screen h-screen brightness-75" alt="" />
           </div>
         </div>
       </section>

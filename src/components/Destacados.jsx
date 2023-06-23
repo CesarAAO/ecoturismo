@@ -1,6 +1,6 @@
 import Monumeto from "../assets/Monumento_Natural.webp";
 import Monumento2 from "../assets/Monumento2.png";
-import Monumento3 from "../assets/castrero.jpg";
+import Monumento3 from "../assets/castrero.webp";
 import SanJuan from "../assets/sanJuan.jpg";
 import { HiOutlineStar } from "react-icons/hi2";
 
@@ -19,6 +19,7 @@ const Destacados = ({ refScroll }) => {
               <a className="relative block overflow-hidden group rounded-xl" href="#">
                 <div className="overflow-hidden aspect-w-12 aspect-h-7 sm:aspect-none rounded-xl">
                   <img
+                    loading="lazy"
                     className="object-cover w-full transition-transform duration-500 ease-in-out group-hover:scale-105 h-80 rounded-xl"
                     src={Monumeto}
                     alt="Image Description"
@@ -36,6 +37,7 @@ const Destacados = ({ refScroll }) => {
               <a className="relative block overflow-hidden group rounded-xl" href="#">
                 <div className="overflow-hidden aspect-w-12 aspect-h-7 sm:aspect-none rounded-xl">
                   <img
+                    loading="lazy"
                     className="object-cover w-full transition-transform duration-500 ease-in-out group-hover:scale-105 h-80 rounded-xl"
                     src={Monumento2}
                     alt="Image Description"
@@ -53,6 +55,7 @@ const Destacados = ({ refScroll }) => {
               <a className="relative block overflow-hidden group rounded-xl" href="#">
                 <div className="overflow-hidden aspect-w-12 aspect-h-7 sm:aspect-none rounded-xl">
                   <img
+                    loading="lazy"
                     className="object-cover w-full transition-transform duration-500 ease-in-out group-hover:scale-105 h-80 rounded-xl"
                     src={SanJuan}
                     alt="Image Description"
@@ -70,6 +73,7 @@ const Destacados = ({ refScroll }) => {
               <a className="relative block overflow-hidden group rounded-xl" href="#">
                 <div className="overflow-hidden aspect-w-12 aspect-h-7 sm:aspect-none rounded-xl">
                   <img
+                    loading="lazy"
                     className="object-cover w-full transition-transform duration-500 ease-in-out group-hover:scale-105 h-80 rounded-xl"
                     src={Monumento3}
                     alt="Image Description"
