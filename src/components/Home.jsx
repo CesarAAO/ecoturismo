@@ -1,4 +1,5 @@
 import { useState, lazy, Suspense } from "react";
+import { Link } from "react-router-dom";
 
 const ModalLogin = lazy(() => import("./ModalLogin"));
 
@@ -17,16 +18,16 @@ export default function Home({ MoreInfo }) {
         <div className="inline-flex items-center justify-center gap-4 mt-48 md:text-end md:basis-2/5">
           <button
             onClick={() => MoreInfo()}
-            className="px-6 py-2 font-medium text-gray-800 rounded-md select-none bg-white/80 hover:bg-white"
+            className="px-4 py-2 font-medium text-gray-800 rounded-md select-none sm:px-6 bg-white/80 hover:bg-white"
           >
             Mas información
           </button>
-          <button
-            onClick={() => setIsOpen(true)}
+          <Link
+            to={"/contacto"}
             className="px-10 py-2 font-medium text-gray-800 rounded-md select-none bg-white/80 hover:bg-white"
           >
-            Comenzar
-          </button>
+            Contactanos
+          </Link>
         </div>
       </div>
       <Suspense>

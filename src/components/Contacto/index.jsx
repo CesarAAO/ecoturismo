@@ -1,16 +1,27 @@
 import { IoMailOutline } from "react-icons/io5";
 import { BsInstagram, BsFacebook, BsTwitter } from "react-icons/bs";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import { useState, lazy, Suspense } from "react";
+import { useEffect } from "react";
+import CommentsItem from "./CommentsItem";
+import LoadingComments from "./LoadingComments";
 
 const ModalComplet = lazy(() => import("./ModalComplet"));
 
 const Contacto = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [listComments, setListComments] = useState([]);
+
+  const SearchComments = async () => {
+    const Comments = await axios.get("https://sis-ordenes-ts.vercel.app/api/ecomments");
+    setListComments(Comments.data);
+    console.log(Comments.data);
+  };
 
   const [message, setMessage] = useState({
-    affair: "",
-    email: "",
+    name: "",
+    country: "",
     message: "",
   });
 
@@ -21,15 +32,22 @@ const Contacto = () => {
     });
   };
 
-  const hadleSubmit = (e) => {
+  const hadleSubmit = async (e) => {
     e.preventDefault();
+    const newMessage = await axios.post("https://sis-ordenes-ts.vercel.app/api/ecomments", message);
+    console.log(newMessage);
     setMessage({
-      affair: "",
-      email: "",
+      name: "",
+      country: "",
       message: "",
     });
     setIsVisible(true);
+    SearchComments();
   };
+
+  useEffect(() => {
+    SearchComments();
+  }, []);
 
   return (
     <>
@@ -118,38 +136,37 @@ const Contacto = () => {
             </h2>
             <form autoComplete="off" onSubmit={hadleSubmit} className="space-y-8">
               <div>
-                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                  Tu correo electrónico
+                <label htmlFor="subject" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                  Nombre
                 </label>
                 <input
+                  name="name"
                   onChange={onChange}
-                  value={message.email}
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-emerald-500 focus:border-emerald-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-emerald-500 dark:focus:border-emerald-500 dark:shadow-sm-light"
-                  placeholder="nombre@gmail.com"
+                  value={message.name}
+                  type="text"
+                  id="subject"
+                  className="block w-full p-3 text-sm text-gray-900 border border-gray-300 rounded-lg shadow-sm bg-gray-50 focus:ring-emerald-500 focus:border-emerald-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-emerald-500 dark:focus:border-emerald-500 dark:shadow-sm-light"
+                  placeholder="Ingresa tu nombre"
                   required
                 />
               </div>
               <div>
-                <label htmlFor="subject" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                  Asunto
+                <label htmlFor="country" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                  Pais
                 </label>
                 <input
-                  name="affair"
                   onChange={onChange}
-                  value={message.affair}
+                  value={message.country}
                   type="text"
-                  id="subject"
-                  className="block w-full p-3 text-sm text-gray-900 border border-gray-300 rounded-lg shadow-sm bg-gray-50 focus:ring-emerald-500 focus:border-emerald-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-emerald-500 dark:focus:border-emerald-500 dark:shadow-sm-light"
-                  placeholder="Permitenos saber en qué te podemos ayudar"
-                  required
+                  id="country"
+                  name="country"
+                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-emerald-500 focus:border-emerald-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-emerald-500 dark:focus:border-emerald-500 dark:shadow-sm-light"
+                  placeholder="Venezuela"
                 />
               </div>
               <div className="sm:col-span-2">
                 <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
-                  Tu mensaje
+                  Mensaje
                 </label>
                 <textarea
                   name="message"
@@ -157,6 +174,7 @@ const Contacto = () => {
                   value={message.message}
                   id="message"
                   rows="6"
+                  required
                   className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-emerald-500 focus:border-emerald-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-emerald-500 dark:focus:border-emerald-500"
                   placeholder="Deja un Comentario..."
                 ></textarea>
@@ -170,6 +188,15 @@ const Contacto = () => {
                 </button>
               </div>
             </form>
+          </div>
+          <h2 className="mb-8 text-2xl font-bold tracking-tight text-center text-gray-900 dark:text-white">
+            Comentarios
+          </h2>
+          <div className="grid grid-cols-1 gap-6 mx-2 lg:gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {listComments.length === 0 && <LoadingComments />}
+            {listComments.map((item) => (
+              <CommentsItem key={item.name} name={item.name} description={item.description} country={item.contry} />
+            ))}
           </div>
         </div>
       </div>
