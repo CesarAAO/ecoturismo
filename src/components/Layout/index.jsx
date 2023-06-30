@@ -17,7 +17,7 @@ export default function Layout({ children, inView }) {
   return (
     <div className="overflow-hidden overflow-y-auto">
       <div className="relative w-screen h-screen bg-white isolate snap-y snap-mandatory">
-        <div className={`pr-6 py-4 fixed z-10  md:px-8 w-full`}>
+        <div className={`pr-6 py-4 fixed z-10 ${!inView && "bg-gray-400/10"} md:px-8 w-full`}>
           <nav className="flex items-center justify-between h-9 " aria-label="Global">
             <div className="flex md:min-w-0 md:flex-1" aria-label="Global">
               <Link to={"/"} className="ml-2 mt-1.5 sm:ml-0 sm:mt-0 inline-flex items-center">
