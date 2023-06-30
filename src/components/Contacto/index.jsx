@@ -16,7 +16,6 @@ const Contacto = () => {
   const SearchComments = async () => {
     const Comments = await axios.get("https://sis-ordenes-ts.vercel.app/api/ecomments");
     setListComments(Comments.data);
-    console.log(Comments.data);
   };
 
   const [message, setMessage] = useState({
