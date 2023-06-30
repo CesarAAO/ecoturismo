@@ -35,14 +35,15 @@ const Contacto = () => {
   const hadleSubmit = async (e) => {
     e.preventDefault();
     const newMessage = await axios.post("https://sis-ordenes-ts.vercel.app/api/ecomments", message);
-    console.log(newMessage);
-    setMessage({
-      name: "",
-      country: "",
-      message: "",
-    });
-    setIsVisible(true);
-    SearchComments();
+    if (newMessage) {
+      setMessage({
+        name: "",
+        country: "",
+        message: "",
+      });
+      setIsVisible(true);
+      SearchComments();
+    }
   };
 
   useEffect(() => {
@@ -189,9 +190,7 @@ const Contacto = () => {
               </div>
             </form>
           </div>
-          <h2 className="mb-8 text-2xl font-bold tracking-tight text-center text-gray-900 dark:text-white">
-            Comentarios
-          </h2>
+          <h2 className="mb-8 text-2xl font-bold tracking-tight text-center text-gray-900 dark:text-white">Comentarios</h2>
           <div className="grid grid-cols-1 gap-6 mx-2 lg:gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {listComments.length === 0 && <LoadingComments />}
             {listComments.map((item) => (

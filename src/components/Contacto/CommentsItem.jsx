@@ -10,7 +10,6 @@ const CommentsItem = ({ name, description, country }) => {
           <p className="mt-0.5 text-xs text-gray-500">{country}</p>
         </div>
       </div>
-
       <p className="mt-4 italic text-slate-700">" {description} "</p>
     </div>
   );
